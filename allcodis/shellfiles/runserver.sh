@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST_IP=`ip addr show eth0 | grep "inet " | awk '{print $2}'|awk -F'/' '{print $1}'`
+HOST_IP=`hostname --ip-address`
 
 sed -i "s/LOCAL_IP/${HOST_IP}/g" $CODIS_HOME/serverconf/conf/server_6900.conf
 
