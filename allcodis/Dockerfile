@@ -1,4 +1,4 @@
-FROM java:7
+FROM bashell/alpine-bash
 MAINTAINER zhijie.lv <401379957@qq.com>
 
 RUN mkdir -p /opt/codis
