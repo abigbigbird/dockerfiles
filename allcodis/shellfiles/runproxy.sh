@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOST_IP=`ip addr show eth0 | grep "inet " | awk '{print $2}'|awk -F'/' '{print $1}'`
+HOST_IP=`hostname --ip-address`
 
 sed -i "s/ZOOKEEPER_IP/${ZOOKEEPER}/g" $CODIS_HOME/proxyconf/config.ini
 sed -i "s/DASHBOARD_ADDR/${DASHBOARD}/g" $CODIS_HOME/proxyconf/config.ini
