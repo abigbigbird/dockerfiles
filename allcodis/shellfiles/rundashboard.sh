@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOST_IP=`hostname --ip-address`
-sed -i "s/LOCAL_IP/${HOST_IP}/g" $CODIS_HOME/codisconf/config.ini
+sed -i "s/DASHBOARD_ADDR/${HOST_IP}/g" $CODIS_HOME/codisconf/config.ini
 sed -i "s/ZOOKEEPER_IP/${ZOOKEEPER}/g" $CODIS_HOME/codisconf/config.ini
 sed -i "s/PRODUCT_NAME/${PRODUCT}/g" $CODIS_HOME/codisconf/config.ini
 
