@@ -1,0 +1,28 @@
+piVersion: v1
+kind: ReplicationController
+metadata:
+  name: codis-dashboard-true
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: codis-dashboard-true
+        service: codis-dashboard-true
+    spec:
+      containers:
+        - name: codis-dashboard-true
+          image: abigbigbird/codisdashboard
+          env:
+            - name: ZOOKEEPER
+              value: "172.24.4.23:2181"
+            - name: PRODUCT
+              value: "true"
+          ports:
+            - containerPort: 18087
+          volumeMounts:
+            - mountPath: /opt/codis/codislog
+              name: codislog
+      volumes:
+        - emptyDir: {}
+          name: codislog

@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: codis-proxy-true
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: codis-proxy-true
+        service: codis-proxy-true
+    spec:
+      containers:
+        - name: codis-proxy-true
+          image: abigbigbird/codisproxy
+          env:
+            - name: ZOOKEEPER
+              value: "172.24.4.23:2181"
+            - name: PRODUCT
+              value: "true"
+            - name: DASHBOARD
+              value: "172.24.103.0"
+            - name: PROXYID
+              value: "proxy_01"
+          ports:
+            - containerPort: 11000
+            - containerPort: 19000
+          volumeMounts:
+            - mountPath: /opt/codis/proxylog
+              name: proxylog
+      volumes:
+        - emptyDir: {}
+          name: proxylog

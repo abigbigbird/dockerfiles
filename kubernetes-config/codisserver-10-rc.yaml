@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: codis-server10-1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: codis-server10-1
+        service: codis-server10-1
+    spec:
+      containers:
+        - name: codis-server10-1
+          image: abigbigbird/codisserver
+          ports:
+            - containerPort: 6900
+          volumeMounts:
+            - mountPath: /opt/codis/serverconf/data
+              name: data
+      volumes:
+        - emptyDir: {}
+          name: data

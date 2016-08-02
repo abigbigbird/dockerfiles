@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: codis-dashboard-true
+  labels:
+    service: codis-dashboard-true
+spec:
+  type: NodePort
+  ports:
+    - port: 18087
+      targetPort: 18087
+      nodePort: 30098
+  selector:
+    name: codis-dashboard-true

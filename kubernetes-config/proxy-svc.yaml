@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: codis-proxy-true
+  labels:
+    service: codis-proxy-true
+spec:
+  ports:
+    - name: tcpaddr
+      port: 19000
+    - name: httpaddr
+      port: 11000
+  selector:
+    name: codis-proxy-true
