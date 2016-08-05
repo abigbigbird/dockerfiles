@@ -1,4 +1,4 @@
-FROM java:7
+FROM ubuntu:14.04
 MAINTAINER zhijie.lv <401379957@qq.com>
 
 RUN mkdir -p /opt/codis
